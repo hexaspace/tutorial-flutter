@@ -2,36 +2,38 @@
 
 void main() {
   // runApp(const MyApp());
-  print("hello world!");
-  var methodName = "doyeon";
-  String className = "ldy";
-  var dynamicVar; // 피해야함. json에 필요.
-  dynamic dynamicTypeVar;
-  print(dynamicTypeVar); // 값을 넣기전 접근가능
-  dynamicTypeVar = "bye";
-  dynamicTypeVar = 666;
-  if (dynamicTypeVar is String) {
-    dynamicTypeVar.length;
-  }
-  final notEdit = "same const";
-  final String notEditDouble = "same const2";
-  // late는 var나 final 앞에 붙인다. data fetch할때 유용
-  late final String lateApiData;
-  // do something
-  // print(lateApiData); // 값을 넣기 전에 접근 불가, null safety같은거 ~~ 에러
-  lateApiData = "데이터 없이 선언하는 것";
-  // lateApiData = "final이라 두번 할당 불가 ~~ 에러";
+  var numlist = [1, 2, 3, 4];
+  var giveMeFive = true;
+  List<int> numlist2 = [
+    1,
+    2,
+    3,
+    4,
+    if (giveMeFive) 5,
+  ];
+  print(numlist2);
+  // string interpolation
+  var name = "doyeon";
+  var age = 10;
+  var greeting = "hello, my name is $name, nice to meet you. I'm ${age + 2}.";
+  print(greeting);
 
-  const max_const_value = "컴파잉ㄹ 상태에 이미 알고있어야한 값";
+  // coilection for
+  var oldFriends = ["aa", "bb"];
+  var newFriends = [
+    "cc",
+    "dd",
+    for (var friend in oldFriends) "S2 $friend",
+  ];
+  print(newFriends);
+  // map
+  var player = {
+    'name': "dy",
+    'xp': 19.99,
+    'superpower': false,
+  }; // Map<string, object> 타입.var대신 이렇게 선언도 가능. / object는 ts의 any / List[int]처럼 복잡한 키도 가능
 
-  // use null
-  String? needTmpNull = "can not access";
-  needTmpNull = null;
-  if (needTmpNull != null) {
-    //이렇게 확인전엔 접근불가능
-    needTmpNull.isEmpty;
-  }
-  needTmpNull?.isEmpty; // 축약형.
+  // set
 }
 /*
 

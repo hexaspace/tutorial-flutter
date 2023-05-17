@@ -23,6 +23,15 @@ void main() {
   // lateApiData = "final이라 두번 할당 불가 ~~ 에러";
 
   const max_const_value = "컴파잉ㄹ 상태에 이미 알고있어야한 값";
+
+  // use null
+  String? needTmpNull = "can not access";
+  needTmpNull = null;
+  if (needTmpNull != null) {
+    //이렇게 확인전엔 접근불가능
+    needTmpNull.isEmpty;
+  }
+  needTmpNull?.isEmpty; // 축약형.
 }
 /*
 

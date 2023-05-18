@@ -1,4 +1,7 @@
 // import 'package:flutter/material.dart';
+
+enum Team { red, blue, yellow, green, orange }
+
 class Player {
   final String name;
   int xp = 1500; // 초기값

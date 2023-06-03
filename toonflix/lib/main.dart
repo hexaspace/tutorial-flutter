@@ -5,6 +5,7 @@ void main() {
   // pomo 어플
   // 25분 일하고 5분 쉬기
   // https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit
+  // 코드챌린지 : 리셋버튼 만들어서 다시 25분으로 ㅇ돌아가게 하기
   runApp(const App());
 }
 

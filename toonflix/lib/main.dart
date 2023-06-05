@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/home_screen.dart';
+import 'package:toonflix/services/api_service.dart';
 
 void main() {
-  runApp(App());
+  ApiService().getTodaysToons();
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('hello flutter'),
-          centerTitle: true,
-          elevation: 99,
-        ),
-        body: Center(
-          child: Text("hello world"),
-        ),
-      ),
+    return const MaterialApp(
+      home: HomeScreen(),
     );
   }
 }

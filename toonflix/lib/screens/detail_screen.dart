@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toonflix/models/webtton_episode_model.dart';
 import 'package:toonflix/services/api_service.dart';
 
@@ -22,12 +23,44 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   late Future<WebtoonDetailModel> webtoon;
   late Future<List<WebtoonEpisodeModel>> episodes;
+  late SharedPreferences prefs;
+
+  bool isLiked = false;
+  Future initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    final likeToons = prefs.getStringList('likedToons');
+    if (likeToons != null) {
+      if (likeToons.contains(widget.id) == true) {
+        isLiked = true;
+        setState(() {});
+      }
+    } else {
+      prefs.setStringList("likedToons", []);
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     webtoon = ApiService.getToonById(widget.id);
     episodes = ApiService.getLatestEpisodesById(widget.id);
+    initPrefs();
+  }
+
+  onHeartTap() async {
+    final likeToons = prefs.getStringList('likedToons');
+    if (likeToons != null) {
+      if (isLiked) {
+        likeToons.remove(widget.id);
+      } else {
+        likeToons.add(widget.id);
+      }
+      await prefs.setStringList("likedToons", likeToons);
+      setState(() {
+        isLiked = !isLiked;
+      });
+    }
   }
 
   @override
@@ -38,6 +71,13 @@ class _DetailScreenState extends State<DetailScreen> {
         elevation: 2,
         foregroundColor: Colors.green,
         backgroundColor: Colors.white,
+        actions: [
+          IconButton(
+              onPressed: onHeartTap,
+              icon: Icon(
+                isLiked ? Icons.favorite : Icons.favorite_border,
+              ))
+        ],
         title: Text(
           widget.title,
           style: const TextStyle(fontSize: 24),

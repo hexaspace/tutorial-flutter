@@ -10,5 +10,5 @@ void main() {
   int? num1; // null able
   int num2 = 10;
   print(num1! + num2); // error, not null이라고 !가 안심해줬지만, 실행시키면 오류 발생됨
-  print(num1 ?? 5 + num2); // success, num1이 null이면 5 + num2 실행
+  print((num1 ?? 5) + num2); // success, num1이 null이면 5 + num2 실행
 }

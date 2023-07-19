@@ -6,15 +6,15 @@ void main() {
     // 화면 구성 도화지
     home: Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text('widget을 배치하기'),
       ),
-      body: CustomContainer(),
+      body: Body(),
     ),
   ));
 }
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key});
+class Body extends StatelessWidget {
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {

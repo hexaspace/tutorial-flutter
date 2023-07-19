@@ -18,38 +18,16 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Container(
-          height: 200,
-          width: double.infinity,
-          color: Colors.purple.shade100,
-        ),
-        // expanded는 내부 객체의 크기에 상관없이 꽉 채움
-        Expanded(
-            flex: 3,
-            child: Container(
-              width: double.infinity,
-              color: Colors.green.shade100,
-              // scroll 안에는 flex를 사용할 수 없음. 반대는 가능.
-              child: SingleChildScrollView(
-                child: Column(children: [
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
-                ]),
-              ),
-            )),
-        Flexible(flex: 1, child: Container(color: Colors.red.shade100)),
-        Flexible(flex: 2, child: Container(color: Colors.blue.shade100)),
-        // flexible은 내부 객체의 크기에 따라 유동적으로 변함
-        Flexible(flex: 2, child: Container(height: 50, color: Colors.yellow.shade100)),
+        Container(width: 500, height: 500, color: Colors.red.shade100),
+        Container(width: 400, height: 400, color: Colors.orange.shade100),
+        // 상대적 수치로 이동 - 비율
+        Align(alignment: Alignment(0.2, 0.5), child: Container(width: 300, height: 300, color: Colors.yellow.shade100)),
+        // 공간은 전체 공간을 활용. 상대적 수치로 이동 - 명명
+        Align(alignment: Alignment.topCenter, child: Container(width: 200, height: 200, color: Colors.green.shade100)),
+        // 공간은 가장 처음 widget을 기반.  절대적 수치로 이동
+        Positioned(bottom: 50, right: 30, child: Container(width: 100, height: 100, color: Colors.blue.shade100)),
       ],
     );
   }

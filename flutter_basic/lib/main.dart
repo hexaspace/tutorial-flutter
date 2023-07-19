@@ -8,235 +8,48 @@ void main() {
       appBar: AppBar(
         title: Text('widget을 배치하기'),
       ),
-      body: RowContainer(),
+      body: Body(),
     ),
   ));
 }
 
-class PlaceHolderWidget extends StatelessWidget {
-  const PlaceHolderWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // 이 위치에 어떤 위젯이 올것이니, 사이즈만큼 자리를 차지해라
-    return Placeholder(
-      child: Text('Hello World'),
-    );
-  }
-}
-
-class ColumnWidget extends StatelessWidget {
-  const ColumnWidget({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      // 스크롤이 가능한 위젯
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // 플러터에서 chlid를 가장 마지막 위치로 보내는게 룰이다
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.red.shade100,
-            child: Text('container 1'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.blue.shade100,
-            child: Text('container 2'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.green.shade100,
-            child: Text('container 3'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.red.shade100,
-            child: Text('container 1'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.blue.shade100,
-            child: Text('container 2'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.green.shade100,
-            child: Text('container 3'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.red.shade100,
-            child: Text('container 1'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.blue.shade100,
-            child: Text('container 2'),
-          ),
-          Container(
-            width: 100,
-            height: 80,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            color: Colors.green.shade100,
-            child: Text('container 3'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class RowContainer extends StatelessWidget {
-  const RowContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.purple.shade100,
-      height: double.infinity,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.red.shade100,
-              child: Text('container 1'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.blue.shade100,
-              child: Text('container 2'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.green.shade100,
-              child: Text('container 3'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.red.shade100,
-              child: Text('container 1'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.blue.shade100,
-              child: Text('container 2'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.green.shade100,
-              child: Text('container 3'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.red.shade100,
-              child: Text('container 1'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.blue.shade100,
-              child: Text('container 2'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.green.shade100,
-              child: Text('container 3'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.red.shade100,
-              child: Text('container 1'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.blue.shade100,
-              child: Text('container 2'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.green.shade100,
-              child: Text('container 3'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// mainAxis, crossAxis를 이용해서 위젯을 배치할 수 있다
-class ColumnRow extends StatelessWidget {
-  const ColumnRow({super.key});
+class Body extends StatelessWidget {
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.red.shade100,
-              child: Text('container 1'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.blue.shade100,
-              child: Text('container 2'),
-            ),
-            Container(
-              width: 100,
-              height: 80,
-              color: Colors.green.shade100,
-              child: Text('container 3'),
-            ),
-          ],
-        ),
         Container(
-          width: 300,
-          height: 100,
-          color: Colors.grey.shade300,
-          child: Text('container 4'),
+          height: 200,
+          width: double.infinity,
+          color: Colors.purple.shade100,
         ),
+        // expanded는 내부 객체의 크기에 상관없이 꽉 채움
+        Expanded(
+            flex: 3,
+            child: Container(
+              width: double.infinity,
+              color: Colors.green.shade100,
+              // scroll 안에는 flex를 사용할 수 없음. 반대는 가능.
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                  Container(color: Colors.grey, height: 50, width: 50, margin: EdgeInsets.symmetric(vertical: 8)),
+                ]),
+              ),
+            )),
+        Flexible(flex: 1, child: Container(color: Colors.red.shade100)),
+        Flexible(flex: 2, child: Container(color: Colors.blue.shade100)),
+        // flexible은 내부 객체의 크기에 따라 유동적으로 변함
+        Flexible(flex: 2, child: Container(height: 50, color: Colors.yellow.shade100)),
       ],
     );
   }

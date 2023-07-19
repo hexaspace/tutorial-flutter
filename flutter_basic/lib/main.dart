@@ -22,7 +22,7 @@ class TestWidget extends StatelessWidget {
           'Hello World',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 40,
+            fontSize: 60,
           ),
         ),
       ),

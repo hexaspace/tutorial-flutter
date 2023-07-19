@@ -5,47 +5,49 @@ void main() {
   runApp(MaterialApp(
     // 화면 구성 도화지
     home: Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          title: Text('Hello World'),
-          actions: [
-            IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  print('Home button is clicked');
-                }),
-            IconButton(
-                icon: Icon(Icons.play_arrow),
-                onPressed: () {
-                  print('play_arrow button is clicked');
-                }),
-          ],
-        ),
-        body: TestWidget(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('FloatingActionButton is clicked');
-          },
-          child: Icon(Icons.waves),
-        )),
+      appBar: AppBar(
+        title: Text('Container study'),
+      ),
+      body: CustomContainer(),
+    ),
   ));
 }
 
-class TestWidget extends StatelessWidget {
-  const TestWidget({super.key});
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // 기기상 짤리는 라운드 부분을 제외하고 넣기
-    return SafeArea(
-      child: Center(
-        child: Text(
-          'Hello World',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 60,
+    return Container(
+      width: double.infinity,
+      height: 100,
+      // color: Color.fromARGB(255, 164, 255, 237), boxdecoration 을 사용하려면 여기서  null이어야함
+      padding: EdgeInsets.fromLTRB(10, 12, 13, 14),
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      decoration: BoxDecoration(
+          color: Colors.pink.shade100,
+          border: Border.all(
+            color: Colors.pink.shade300,
+            width: 5,
+            style: BorderStyle.solid,
           ),
-        ),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(-10, 10),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+            BoxShadow(
+              color: Colors.blue,
+              offset: Offset(10, -10),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ]),
+      child: Center(
+        child: Text('hello containercontainercontainercontainercontainercontainercontainer'),
       ),
     );
   }
